@@ -1,4 +1,5 @@
 head
+  title Login
   style(type='text/css').
     body {
     margin: 0;
@@ -33,7 +34,7 @@ head
             .form-group
               label.text-info(for='email') Email:
               br
-              input#email.form-control(type='text', name='email')
+              input#email.form-control(type='text', name='email' value = values ? values.email: '')
             .form-group
               label.text-info(for='password') Password:
               br
@@ -44,6 +45,9 @@ head
                 span
                   input#remember-me.ml-3.pt(name='remember-me', type='checkbox')
               br
-              input.btn.btn-info.btn-md(type='submit', name='submit', value='submit')
+              input.btn.btn-info.btn-md(type='submit', name='submit', value='Đăng nhập')
             #register-link.text-right
               a.text-info(href='#') Register here
+        if errors
+            each error in errors
+              .alert.alert-danger.mt-1= error
